@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=3c731a2f-0238-495d-aff9-3be9d34d286c&lang=ru_RU"
+            type="text/javascript">
+    </script>
+    <script src="dist/index.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="page_container">
+    <h1>Выберите способ доставки</h1>
+    <div class="tabs">
+        <button id="tab_delivery" class="tab-item active">Доставка</button>
+        <div class="tab-content">
+            <div class="input-row">
+                <div class="input-group">
+                    <label>ФИО</label>
+                    <input validate="fio" type="text" placeholder="Только кириллица" required="required"/>
+                </div>
+                <div class="input-group">
+                    <label>Телефон</label>
+                    <input validate="phone" id="phone" type="text" val="" lastval="" placeholder="+7 (___) ___-__-__" required="required"/>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Адрес доставки</label>
+                <input type="text" placeholder="Город, улица, дом" required="required"/>
+            </div>
+            <div class="input-group">
+                <label>Комментарий</label>
+                <textarea rows="3" required="required"></textarea>
+            </div>
+            <div class="input-group">
+                <input type="button" value="Отправить" onclick="sendForm(this)"/>
+            </div>
+        </div>
+        <button id="tab_pickup" class="tab-item">Самовывоз</button>
+        <div class="tab-content" hidden>
+            <div class="input-row">
+                <div class="input-group">
+                    <label class="radio-container">
+                        <input type="radio" checked name="radio"/>
+                        <span class="checkmark"></span>
+                        <span class="radio-text">Пункт выдачи заказов Песчаная улица, дом 13</span>
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label class="radio-container">
+                        <input type="radio" name="radio"/>
+                        <span class="checkmark"></span>
+                        <span class="radio-text">Пункт выдачи заказов Подсосенский переулок, 11</span>
+                    </label>
+                </div>
+            </div>
+            <div class="input-group">
+                <div id="map" class="map"></div>
+            </div>
+            <div class="input-group">
+                <input type="button" value="Отправить" onclick="sendForm(this)"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
